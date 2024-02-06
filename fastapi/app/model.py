@@ -1,9 +1,9 @@
 # models.py
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Column, Integer, String
 from config import Base
 
 class Book(Base):
-    __tablename__ = "book"
+    __tablename__ = "books"
 
     id = Column(Integer, primary_key=True)
     title = Column(String)

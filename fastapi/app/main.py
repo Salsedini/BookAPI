@@ -3,7 +3,7 @@ import model
 from config import Base, engine
 import router
 
-Base.metadata.create_all(bind=engine)
+model.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
