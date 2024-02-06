@@ -9,6 +9,7 @@ def get_book_by_id(db: Session, book_id: int):
     return db.query(Book).filter(Book.id == book_id).first()
 
 def create_book(db:Session, book: BookSchema):
+    print(f"Book Information - Title: {book.title}, Description: {book.description}")
     _book = Book(title = book.title, description = book.description)
     db.add(_book)
     db.commit()

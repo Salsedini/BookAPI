@@ -1,14 +1,14 @@
 from fastapi import FastAPI
 import model 
-from config import engine 
+from config import Base, engine
 import router
 
-model.Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
 @app.get('/')
 async def Home():
-    return "Que dicen mis chavales"
+    return "Home sweet home"
 
 app.include_router(router.router, prefix = "/book", tags = ["book"])

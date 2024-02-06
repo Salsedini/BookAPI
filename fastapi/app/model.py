@@ -6,5 +6,6 @@ class Book(Base):
     __tablename__ = "book"
 
     id = Column(Integer, primary_key=True)
-    name = Column(String)
+    title = Column(String)
     description = Column(String)
+

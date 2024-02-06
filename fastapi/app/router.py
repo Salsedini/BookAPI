@@ -1,8 +1,9 @@
 from fastapi import APIRouter, HTTPException, Path, Depends
-from config import SessionLocal
+from config import SessionLocal, engine
 from sqlalchemy.orm import Session 
 from schemas import BookSchema, RequestBook, Response
 import crud
+import model
 
 router = APIRouter()
 
@@ -15,6 +16,7 @@ def get_db():
 
 @router.post('/create')
 async def createBook(request: RequestBook, db: Session = Depends(get_db)):
+    print(f"Book Information - Title: {request.parameter.title}, Description: {request.parameter.description}")
     crud.create_book(db, book = request.parameter)
     return Response(code = 200, status = "ok", message = "Book created succesfully").dict(exclude_none = True)
 

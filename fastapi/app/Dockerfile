@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y libpq-dev
 
 RUN pip install -r requirements.txt
 
-EXPOSE 80
+EXPOSE 8000
 
 ENV DATABASE_URL = "postgresql://Salcedo:1234@db/dbname"
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
